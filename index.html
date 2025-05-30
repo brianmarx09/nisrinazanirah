@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nisrina Zanirah</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-color);
+            background-color: #f8f9fa;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath fill='%23ffffff' fill-opacity='0.05' d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z'%3E%3C/path%3E%3C/svg%3E");
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .section-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 20px;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background-color: var(--secondary-color);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-bottom: 30px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -34px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            border: 2px solid white;
+        }
+        
+        .timeline-date {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+        
+        .award-icon {
+            font-size: 2rem;
+            color: var(--accent-color);
+        }
+        
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .portfolio-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(44, 62, 80, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-title {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .portfolio-desc {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+        }
+        
+        .skill-bar {
+            height: 8px;
+            border-radius: 4px;
+            background-color: #e9ecef;
+            margin-bottom: 20px;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+        }
+        
+        .footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px 0;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            margin-right: 10px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        @media (max-width: 767px) {
+            .hero-section {
+                padding: 4rem 0;
+            }
+            
+            .profile-img {
+                width: 150px;
+                height: 150px;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Hero Section -->
+    <section class="hero-section">
+        <div class="container hero-content">
+            <div class="row align-items-center">
+                <div class="col-md-4 text-center text-md-end mb-4 mb-md-0">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' width='200' height='200'%3E%3Ccircle cx='100' cy='70' r='40' fill='%23f5d6a7'/%3E%3Cpath d='M100 120 L100 120 Q70 120 60 150 L60 200 L140 200 L140 150 Q130 120 100 120' fill='%233498db'/%3E%3Ccircle cx='85' cy='65' r='5' fill='%23333'/%3E%3Ccircle cx='115' cy='65' r='5' fill='%23333'/%3E%3Cpath d='M85 85 Q100 95 115 85' stroke='%23333' stroke-width='2' fill='none'/%3E%3Cpath d='M60 60 Q80 50 80 60' stroke='%23333' stroke-width='2' fill='none'/%3E%3Cpath d='M140 60 Q120 50 120 60' stroke='%23333' stroke-width='2' fill='none'/%3E%3Cpath d='M70 40 L85 50 M130 40 L115 50' stroke='%23333' stroke-width='2' fill='none'/%3E%3C/svg%3E" alt="Leonardo DiCaprio" class="profile-img">
+                </div>
+                <div class="col-md-8">
+                    <h1 class="display-4 fw-bold mb-2">Nisrina Zanirah</h1>
+                    <p class="lead mb-4">Mahasiswi & Gamer</p>
+                    <div class="d-flex flex-wrap">
+                        <span class="badge bg-light text-dark me-2 mb-2 p-2">
+                            <i class="fas fa-film me-1"></i> Mahasiswi
+                        </span>
+                        <span class="badge bg-light text-dark me-2 mb-2 p-2">
+                            <i class="fas fa-leaf me-1"></i> Gamer
+                        </span>
+                        <span class="badge bg-light text-dark me-2 mb-2 p-2">
+                            <i class="fas fa-award me-1"></i> Chicken Dinner
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="section-title">Tentang Aku</h2>
+                    <p class="lead">Saya mahasiswi dan merupakan gamer dari BKT (Banjir Kanal Timur) yang telah mendedikasikan kehidupan saya sebagai mahasiswi di Universitas Gunadarma dengan jurusan Informatika selama lebih dari 2 tahun. Selain memiliki kesibukan sebagai mahasiswi, saya juga berdedikasi untuk bermain game sebagai hobi saya sehari-hari.</p>
+                    <p>Lahir pada 18 November 2005 di Banjir Kanal Timur, Jakarta Timur, saya memulai kehidupan saya sebagai murid yang aktif dan cerita, terkadang jika ada hal yang menyebalkan pada hidup saya atau terdapat orang yang menganggu saya, saya tidak segan untuk menghajarnya sejak usia muda. Sepanjang kehidupan saya, saya telah meniti pendidikan saya di sekolah-sekolah favorit seperti SMPN 58 Bekasi dan SMKN 6 Bekasi. Saya dikenal karena dedikasi saya terhadap peran dan kemampuan untuk menghidupkan saya sebagai wanita yang memiliki karakter pendiam, namun sangat menghanyutkan.</p>
+                    <p>Di luar dunia kesibukan saya sebagai mahasiswi, saya menghabiskan waktu sehari-hari saya dengan bermain game seperti PUBG bersama teman akrabku untuk bersenang-senang di masa muda, karena masa muda tidak datang dua kali brooo!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Riwayat Pendidikan</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <p class="timeline-date">1945 - 1946</p>
+                    <h4>TK Hindia Belanda</h4>
+                    <p>Pendidikan awal saya dengan fokus pada seni menulis dan membaca.</p>
+                </div>
+                <div class="timeline-item">
+                    <p class="timeline-date">1946 - 1951</p>
+                    <h4>SD Jokowi - Gibran</h4>
+                    <p>Pendidikan dasar saya sebelum memutuskan untuk fokus pada pendidikan menegah pertama.</p>
+                </div>
+                <div class="timeline-item">
+                    <p class="timeline-date">1951 - 1954</p>
+                    <h4>SMP Esempeh 47 Bekasi</h4>
+                    <p>Pendidikan menengah pertama di Esempeh 47 Bekasi. I want youu! I need you!</p>
+                </div>
+                <div class="timeline-item">
+                    <p class="timeline-date">1954 - 1957</p>
+                    <h4>SMK Esemka 58 Bekasi</h4>
+                    <p>Pendidikan menengah akhir di Esemka 58 Bekasi. Oke gass oke gass! Tambah dua torang gasss.</p>
+                </div>
+                <div class="timeline-item">
+                    <p class="timeline-date">2023 - 2027</p>
+                    <h4>Universitas Gunadarma</h4>
+                    <p>Mahasiswi jurusan Informatika di Kampus Universitas Gunadarma (UGD). Dengan prestasi menarik minat dan hati calon CEO dari <b><i>RizzCorp.</i></b></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title">Penghargaan & Prestasi</h2>
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 p-4">
+                        <div class="text-center mb-3">
+                            <i class="fas fa-trophy award-icon"></i>
+                        </div>
+                        <h4 class="card-title text-center">Academy Award (Oscar)</h4>
+                        <p class="card-text text-center">Aktor Terbaik untuk film "The Revenant" (2016)</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 p-4">
+                        <div class="text-center mb-3">
+                            <i class="fas fa-award award-icon"></i>
+                        </div>
+                        <h4 class="card-title text-center">Golden Globe Awards</h4>
+                        <p class="card-text text-center">3x Pemenang: "The Aviator" (2005), "The Wolf of Wall Street" (2014), "The Revenant" (2016)</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 p-4">
+                        <div class="text-center mb-3">
+                            <i class="fas fa-star award-icon"></i>
+                        </div>
+                        <h4 class="card-title text-center">BAFTA Award</h4>
+                        <p class="card-text text-center">Aktor Terbaik untuk film "The Revenant" (2016)</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 p-4">
+                        <div class="text-center mb-3">
+                            <i class="fas fa-medal award-icon"></i>
+                        </div>
+                        <h4 class="card-title text-center">Screen Actors Guild Award</h4>
+                        <p class="card-text text-center">Aktor Terbaik untuk film "The Revenant" (2016)</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 p-4">
+                        <div class="text-center mb-3">
+                            <i class="fas fa-leaf award-icon"></i>
+                        </div>
+                        <h4 class="card-title text-center">UN Messenger of Peace</h4>
+                        <p class="card-text text-center">Ditunjuk oleh PBB untuk isu perubahan iklim (2014)</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 p-4">
+                        <div class="text-center mb-3">
+                            <i class="fas fa-globe award-icon"></i>
+                        </div>
+                        <h4 class="card-title text-center">Clinton Global Citizen Award</h4>
+                        <p class="card-text text-center">Penghargaan untuk aktivisme lingkungan (2016)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Portfolio Film</h2>
+            <div class="row">
+                <div class="col-md-6 col-lg-4">
+                    <div class="portfolio-item">
+                        <div style="background-color: #3498db; height: 250px; display: flex; justify-content: center; align-items: center;">
+                            <svg width="100" height="100" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19.82 2H4.18C2.97602 2 2 2.97602 2 4.18V19.82C2 21.024 2.97602 22 4.18 22H19.82C21.024 22 22 21.024 22 19.82V4.18C22 2.97602 21.024 2 19.82 2Z" stroke="white" stroke-width="2"/>
+                                <path d="M7 2V22" stroke="white" stroke-width="2"/>
+                                <path d="M17 2V22" stroke="white" stroke-width="2"/>
+                                <path d="M2 12H22" stroke="white" stroke-width="2"/>
+                                <path d="M2 7H7" stroke="white" stroke-width="2"/>
+                                <path d="M2 17H7" stroke="white" stroke-width="2"/>
+                                <path d="M17 17H22" stroke="white" stroke-width="2"/>
+                                <path d="M17 7H22" stroke="white" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <h5 class="portfolio-title">Titanic (1997)</h5>
+                            <p class="portfolio-desc">Peran sebagai Jack Dawson dalam film epik romantis yang memenangkan 11 Oscar.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="portfolio-item">
+                        <div style="background-color: #2c3e50; height: 250px; display: flex; justify-content: center; align-items: center;">
+                            <svg width="100" height="100" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 3L20 7.5V16.5L12 21L4 16.5V7.5L12 3Z" stroke="white" stroke-width="2"/>
+                                <path d="M12 12L20 7.5" stroke="white" stroke-width="2"/>
+                                <path d="M12 12V21" stroke="white" stroke-width="2"/>
+                                <path d="M12 12L4 7.5" stroke="white" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <h5 class="portfolio-title">Inception (2010)</h5>
+                            <p class="portfolio-desc">Peran sebagai Dom Cobb dalam film sci-fi Christopher Nolan yang mengeksplorasi dunia mimpi.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="portfolio-item">
+                        <div style="background-color: #e74c3c; height: 250px; display: flex; justify-content: center; align-items: center;">
+                            <svg width="100" height="100" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14.5 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V7.5L14.5 2Z" stroke="white" stroke-width="2"/>
+                                <path d="M14 2V8H20" stroke="white" stroke-width="2"/>
+                                <path d="M16 13H8" stroke="white" stroke-width="2"/>
+                                <path d="M16 17H8" stroke="white" stroke-width="2"/>
+                                <path d="M10 9H8" stroke="white" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <h5 class="portfolio-title">The Revenant (2015)</h5>
+                            <p class="portfolio-desc">Peran sebagai Hugh Glass yang memenangkan Oscar pertama saya untuk Aktor Terbaik.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="portfolio-item">
+                        <div style="background-color: #f39c12; height: 250px; display: flex; justify-content: center; align-items: center;">
+                            <svg width="100" height="100" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 15C15.866 15 19 11.866 19 8C19 4.13401 15.866 1 12 1C8.13401 1 5 4.13401 5 8C5 11.866 8.13401 15 12 15Z" stroke="white" stroke-width="2"/>
+                                <path d="M12 15V23" stroke="white" stroke-width="2"/>
+                                <path d="M8 19H16" stroke="white" stroke-width="2"/>
+                                <path d="M12 8C12.5523 8 13 7.55228 13 7C13 6.44772 12.5523 6 12 6C11.4477 6 11 6.44772 11 7C11 7.55228 11.4477 8 12 8Z" fill="white"/>
+                                <path d="M9 5C9.55228 5 10 4.55228 10 4C10 3.44772 9.55228 3 9 3C8.44772 3 8 3.44772 8 4C8 4.55228 8.44772 5 9 5Z" fill="white"/>
+                                <path d="M15 5C15.5523 5 16 4.55228 16 4C16 3.44772 15.5523 3 15 3C14.4477 3 14 3.44772 14 4C14 4.55228 14.4477 5 15 5Z" fill="white"/>
+                            </svg>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <h5 class="portfolio-title">The Wolf of Wall Street (2013)</h5>
+                            <p class="portfolio-desc">Peran sebagai Jordan Belfort dalam film Martin Scorsese tentang keuangan dan korupsi.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="portfolio-item">
+                        <div style="background-color: #9b59b6; height: 250px; display: flex; justify-content: center; align-items: center;">
+                            <svg width="100" height="100" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="white" stroke-width="2"/>
+                                <path d="M9 22V12H15V22" stroke="white" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <h5 class="portfolio-title">Django Unchained (2012)</h5>
+                            <p class="portfolio-desc">Peran sebagai Calvin Candie dalam film Quentin Tarantino tentang perbudakan di Amerika.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="portfolio-item">
+                        <div style="background-color: #16a085; height: 250px; display: flex; justify-content: center; align-items: center;">
+                            <svg width="100" height="100" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="white" stroke-width="2"/>
+                                <path d="M2 12H22" stroke="white" stroke-width="2"/>
+                                <path d="M12 2C14.5013 4.73835 15.9228 8.29203 16 12C15.9228 15.708 14.5013 19.2616 12 22C9.49872 19.2616 8.07725 15.708 8 12C8.07725 8.29203 9.49872 4.73835 12 2Z" stroke="white" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <h5 class="portfolio-title">Before the Flood (2016)</h5>
+                            <p class="portfolio-desc">Dokumenter tentang perubahan iklim yang saya produksi dan naratori.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    -->
+
+    <!-- Skills Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title">Keahlian</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Ngoding</h5>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 5%;"></div>
+                    </div>
+                    
+                    <h5>Mabar Game</h5>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 100%;"></div>
+                    </div>
+                    
+                    <h5>Sandiwara</h5>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 75%;"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h5>Public Speaking</h5>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%;"></div>
+                    </div>
+                    
+                    <h5>Romantis</h5>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 88%;"></div>
+                    </div>
+                    
+                    <h5>Pasangan Serasi</h5>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 80%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Identitas Diri</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h5 class="mb-0">Nama Lengkap</h5>
+                            <p>Nisrina Zanirah</p>
+                        </div>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <i class="fas fa-calendar"></i>
+                        </div>
+                        <div>
+                            <h5 class="mb-0">Tanggal Lahir</h5>
+                            <p>18 November 2005</p>
+                        </div>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h5 class="mb-0">Tempat Lahir</h5>
+                            <p>Banjir Kanal Timur (BKT), Jakarta Timur, Indonesia</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h5 class="mb-0">Email</h5>
+                            <p>nisrinazanirahluvluv@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div>
+                            <h5 class="mb-0">Website</h5>
+                            <p>www.nisrinazanirah.vercel.app</p>
+                        </div>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div>
+                            <h5 class="mb-0">Profesi</h5>
+                            <p>Mahasiswi, Gamer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <h4>Nisrina Zanirah</h4>
+                    <p class="mb-0">&copy; 2025 Semua Hak Cipta Dilindungi</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <div style="font-style: normal" class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
